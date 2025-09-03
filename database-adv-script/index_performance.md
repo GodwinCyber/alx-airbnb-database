@@ -10,16 +10,19 @@ __Instructions:__
 
 ## Identify high-usage columns in your User, Booking, and Property tables (e.g., columns used in WHERE, JOIN, ORDER BY clauses).
 ```sql
-SELECT * FROM Users
+-- Identify high-usage columns in your User, Booking, and Property tables (e.g., columns used in WHERE, JOIN, ORDER BY clauses).
+SELECT * FROM users
 WHERE email = 'godwinchuks032@gmail.com'
-```
 
-
-
-## Write SQL CREATE INDEX commands to create appropriate indexes for those columns and save them on database_index.sql
-```sql
+-- Write SQL CREATE INDEX commands to create appropriate indexes for those columns and save them on database_index.sql
 CREATE INDEX idx_users_email ON Users(email);
+
+-- Measure the query performance before and after adding indexes using EXPLAIN or ANALYZE.
+EXPLAIN ANALYZE
+SELECT * users
+WHERE email = 'godwinchuks032@gmail.com';
 ```
+
 
 __With Index__
 ![with_Index](./sql_explain.png)
