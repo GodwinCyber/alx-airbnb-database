@@ -41,3 +41,16 @@ FROM
   Users u
 FULL OUTER JOIN
   Bookings b ON u.user_id = b.user_id
+
+
+-- Identify high-usage columns in your User, Booking, and Property tables (e.g., columns used in WHERE, JOIN, ORDER BY clauses).
+SELECT * FROM Users
+WHERE email = 'godwinchuks032@gmail.com';
+
+-- Write SQL CREATE INDEX commands to create appropriate indexes for those columns and save them on database_index.sql
+CREATE INDEX idx_users_email ON Users(email);
+
+-- Measure the query performance before and after adding indexes using EXPLAIN or ANALYZE.
+EXPLAIN ANALYZE
+SELECT * FROM Users
+WHERE email = 'godwinchuks032@gmail.com';
