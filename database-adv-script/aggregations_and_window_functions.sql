@@ -29,6 +29,7 @@ SELECT
   pb.property_id,
   pb.name,
   pb.total_bookings,
+  ROW_NUMBER() OVER (ORDER BY pb.total_bookings DESC, pb.name ASC) AS row_num,
   RANK() OVER (ORDER BY pb.total_bookings DESC) AS booking_rank
 FROM
   PropertyBookings pb
